@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>client</title>
+	<script src="socket.io.js"></script>
+</head>
+<body>
+	<input type='text' name='speak'/>
+	<button id='send'>send</button>
+	<script>
+		var socket = io('ws://localhost:3000')
+		socket.on('news',function(data){
+			//console.log(data)
+			socket.emit('my other event',{my:'data'})
+		})
+		document.querySelector('#send').addEventListener('click',function(){
+			var msg = document.querySelector("input[name=speak]").value;
+			socket.emit('msg',{user1:msg})
+			console.log("user1:"+msg);
+		})
+	</script>
+</body>
+</html>
