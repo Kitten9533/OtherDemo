@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>index</title>
+	<script src='./json.js'></script>
+	<script src='./socket.io.js'></script>
+</head>
+<body>
+	<input type="text" id="message" placeholder=""/>
+	<button id="btn" onclick="send()">发送</button>
+	<script>
+		var socket = socket = io.connect('ws://127.0.0.1:3000');
+		function send(){
+			socket.emit("message",{data:'aaaaa'});
+		}
+	</script>
+</body>
+</html>
