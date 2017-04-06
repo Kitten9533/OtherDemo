@@ -24,7 +24,6 @@
 		},
 		send:function(){
 			console.log('send'+el.value);
-			socket.send(el.value);
 			socket.emit('message',{data:el.value});
 			el.value = '';
 		}
